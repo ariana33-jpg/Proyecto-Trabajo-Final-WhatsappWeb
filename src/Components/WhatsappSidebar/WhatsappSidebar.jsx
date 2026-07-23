@@ -277,7 +277,7 @@ const WhatsappSidebar = () => {
                                         <div className="wa-contact-header">
                                             <span className="wa-contact-name">{contact.name}</span>
                                             <span className={`wa-contact-time ${contact.unreadCount > 0 ? 'unread' : ''}`}>
-                                                {contact.time || '12:00 p. m.'}
+                                                {contact.time}
                                             </span>
                                         </div>
 

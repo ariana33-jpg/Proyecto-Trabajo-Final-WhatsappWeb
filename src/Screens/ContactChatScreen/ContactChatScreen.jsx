@@ -25,23 +25,7 @@ const ContactChatScreen = () => {
     return (
         <div className="wa-app-layout">
             <WhatsappSidebar />
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#0b141a' }}>
-                <header style={{
-                    height: 60,
-                    padding: '10px 16px',
-                    backgroundColor: '#202c33',
-                    display: 'flex',
-                    alignItems: 'center',
-                    borderBottom: '1px solid var(--wa-border)'
-                }}>
-                    <h2 style={{ fontSize: 16, fontWeight: 500, color: 'var(--wa-text-primary)' }}>
-                        {contact_selected.name}
-                    </h2>
-                </header>
-                <div style={{ flex: 1, overflowY: 'auto' }}>
-                    <Messages />
-                </div>
-            </div>
+            <Messages />
         </div>
     )
 }

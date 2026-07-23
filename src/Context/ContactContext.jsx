@@ -17,22 +17,26 @@ const server_contacts = [
             {
                 id: 1,
                 sendByMe: false,
-                content: "hola hija , comemos algo este finde?"
+                content: "hola hija , comemos algo este finde?",
+                time: "11:58 a. m."
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Hola paa , claro que sí, cuando quieras"
+                content: "Hola paa , claro que sí, cuando quieras",
+                time: "12:00 p. m."
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Asado o pollo al disco?"
+                content: "Asado o pollo al disco?",
+                time: "12:01 p. m."
             },
             {
                 id: 4,
                 sendByMe: true,
-                content: "Asaditoooo"
+                content: "Asaditoooo",
+                time: "12:02 p. m."
             }
         ]
     },
@@ -49,22 +53,26 @@ const server_contacts = [
             {
                 id: 1,
                 sendByMe: false,
-                content: "Hola amor, que tengas un buen día!"
+                content: "Hola amor, que tengas un buen día!",
+                time: "11:45 a. m."
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Gracias amor, igualmente!"
+                content: "Gracias amor, igualmente!",
+                time: "11:47 a. m."
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Te parece ir a merendar a la tarde?"
+                content: "Te parece ir a merendar a la tarde?",
+                time: "12:03 p. m."
             },
             {
                 id: 4,
                 sendByMe: true,
-                content: "Sii , amo ese plan 😍"
+                content: "Sii , amo ese plan 😍",
+                time: "12:05 p. m."
             }
         ]
     },
@@ -81,22 +89,26 @@ const server_contacts = [
             {
                 id: 1,
                 sendByMe: false,
-                content: "Hola amiga , tengo que contarte algo , cuando puedas me llamas?"
+                content: "Hola amiga , tengo que contarte algo , cuando puedas me llamas?",
+                time: "11:15 a. m."
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Hola amiga, si , obvio , estoy en el gym ahora , te llamo en un rato"
+                content: "Hola amiga, si , obvio , estoy en el gym ahora , te llamo en un rato",
+                time: "11:20 a. m."
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Dale , te espero"
+                content: "Dale , te espero",
+                time: "11:25 a. m."
             },
             {
                 id: 4,
                 sendByMe: true,
-                content: "Gracias amiga"
+                content: "Gracias amiga",
+                time: "11:30 a. m."
             }
         ]
     },
@@ -113,22 +125,26 @@ const server_contacts = [
             {
                 id: 1,
                 sendByMe: false,
-                content: "Hermanitaa , que andas haciendo?"
+                content: "Hermanitaa , que andas haciendo?",
+                time: "09:10 a. m."
             },
             {
                 id: 2,
                 sendByMe: true,
-                content: "Nadaaa , estoy en casa viendo una peli"
+                content: "Nadaaa , estoy en casa viendo una peli",
+                time: "09:12 a. m."
             },
             {
                 id: 3,
                 sendByMe: false,
-                content: "Jajaja sí , yo también estoy en casa viendo una peli"
+                content: "Jajaja sí , yo también estoy en casa viendo una peli",
+                time: "09:15 a. m."
             },
             {
                 id: 4,
                 sendByMe: true,
-                content: "Decime que somos hermanas sin decirme que somos hermanas"
+                content: "Decime que somos hermanas sin decirme que somos hermanas",
+                time: "09:16 a. m."
             }
         ]
     }
@@ -145,12 +161,25 @@ function ContactContextProvider() {
         contact_selected = contacts.find(contact => contact.id === Number(contact_id))
     }
 
+    function getCurrentFormattedTime() {
+        return new Date().toLocaleTimeString('es-AR', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+        })
+    }
+
     function deleteMessageById(message_id) {
         const contacts_modified = contacts.map(
             (contact) => {
                 if (contact.id === Number(contact_id)) {
                     const message_index = contact.messages.findIndex(message => message.id === Number(message_id))
-                    contact.messages.splice(message_index, 1)
+                    if (message_index !== -1) {
+                        contact.messages.splice(message_index, 1)
+                        // Update lastMessage if array is modified
+                        const lastMsg = contact.messages[contact.messages.length - 1]
+                        contact.lastMessage = lastMsg ? lastMsg.content : ''
+                    }
                 }
 
                 return contact
@@ -162,16 +191,20 @@ function ContactContextProvider() {
     }
 
     function createMessage(value, sendByMe) {
+        const nowFormatted = getCurrentFormattedTime()
+
         const contacts_modified = contacts.map(
             (contact) => {
                 if (contact.id === Number(contact_id)) {
-
                     const new_message = {
                         content: value,
                         sendByMe: sendByMe,
-                        id: contact.messages.length + 1
+                        id: Date.now(),
+                        time: nowFormatted
                     }
                     contact.messages.push(new_message)
+                    contact.lastMessage = value
+                    contact.time = nowFormatted
                 }
 
                 return contact
@@ -187,6 +220,7 @@ function ContactContextProvider() {
             (contact) => {
                 if (contact.id === Number(contact_id)) {
                     contact.messages = []
+                    contact.lastMessage = ''
                 }
 
                 return contact
@@ -197,13 +231,6 @@ function ContactContextProvider() {
         )
     }
 
-    /* 
-    createContact
-    deleteContactById
-    updateContactById
-    updateMessageById
-    */
-
     const provider_values = {
         contacts: contacts,
         contact_selected,
@@ -213,9 +240,6 @@ function ContactContextProvider() {
     }
     return (
         <ContactContext.Provider value={provider_values}>
-            {/* 
-            el outlet hace referencia a las subrutas
-            */}
             <Outlet />
         </ContactContext.Provider>
     )
