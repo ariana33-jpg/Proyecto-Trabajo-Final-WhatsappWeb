@@ -1,0 +1,91 @@
+.wa-app-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--wa-bg-app);
+}
+
+.wa-welcome-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #222e35;
+    position: relative;
+    padding: 30px;
+}
+
+.wa-welcome-card {
+    background-color: #1c272d;
+    border-radius: 20px;
+    padding: 40px 30px;
+    max-width: 480px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.wa-welcome-illustration {
+    margin-bottom: 24px;
+}
+
+.wa-welcome-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--wa-text-primary);
+    margin-bottom: 12px;
+}
+
+.wa-welcome-subtitle {
+    font-size: 14px;
+    color: var(--wa-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.wa-download-btn {
+    background-color: var(--wa-green);
+    color: #111b21;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.wa-download-btn:hover {
+    background-color: var(--wa-green-badge);
+}
+
+.wa-welcome-footer {
+    position: absolute;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.wa-footer-chip {
+    background-color: #1c272d;
+    color: var(--wa-text-primary);
+    border: 1px solid var(--wa-border);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.wa-footer-chip:hover {
+    background-color: var(--wa-bg-hover);
+}

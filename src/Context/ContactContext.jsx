@@ -8,6 +8,11 @@ const server_contacts = [
         id: 1,
         name: "Papá",
         lastMessage: "Asaditoooo",
+        time: "12:02 p. m.",
+        unreadCount: 0,
+        isMuted: false,
+        isGroup: false,
+        avatarUrl: "/avatars/papa.jpg",
         messages: [
             {
                 id: 1,
@@ -35,6 +40,11 @@ const server_contacts = [
         id: 2,
         name: "Amor",
         lastMessage: "Sii , amo ese plan 😍",
+        time: "12:05 p. m.",
+        unreadCount: 0,
+        isMuted: false,
+        isGroup: false,
+        avatarUrl: "/avatars/amor.jpg",
         messages: [
             {
                 id: 1,
@@ -62,6 +72,11 @@ const server_contacts = [
         id: 3,
         name: "Amiga",
         lastMessage: "Gracias amiga",
+        time: "11:30 a. m.",
+        unreadCount: 0,
+        isMuted: false,
+        isGroup: false,
+        avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80",
         messages: [
             {
                 id: 1,
@@ -89,6 +104,11 @@ const server_contacts = [
         id: 4,
         name: "Hermanita mo",
         lastMessage: "Decime que somos hermanas sin decirme que somos hermanas",
+        time: "Ayer",
+        unreadCount: 0,
+        isMuted: false,
+        isGroup: false,
+        avatarUrl: "/avatars/hermanita.jpg",
         messages: [
             {
                 id: 1,
@@ -111,7 +131,7 @@ const server_contacts = [
                 content: "Decime que somos hermanas sin decirme que somos hermanas"
             }
         ]
-    },
+    }
 ]
 
 function ContactContextProvider() {
@@ -184,8 +204,6 @@ function ContactContextProvider() {
     updateMessageById
     */
 
-
-
     const provider_values = {
         contacts: contacts,
         contact_selected,
@@ -202,6 +220,5 @@ function ContactContextProvider() {
         </ContactContext.Provider>
     )
 }
-
 
 export { ContactContext, ContactContextProvider }

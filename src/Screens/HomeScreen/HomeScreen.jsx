@@ -1,55 +1,48 @@
 import { useContext } from "react"
-import Header from "../../Components/Header/Header"
 import WhatsappSidebar from "../../Components/WhatsappSidebar/WhatsappSidebar"
 import { ContactContext } from "../../Context/ContactContext"
+import "./HomeScreen.css"
 
-function HomeScreen (){
-
-    /* const products = [
-        {id: 1, price: 200, title: "tv samsung"},
-        {id: 2, price: 250, title: "tv noblex"}
-    ] */
-
-   
+function HomeScreen() {
     return (
-        <div>
-            <WhatsappSidebar/>
-            {/* <h1>Productos</h1>
-            {
-                products.map(product => {
-                    return (
-                        <div key={product.id}>
-                            <h2>{product.title}</h2>
-                            <span>Precio: ${product.price}</span>
-                            <a href={`/products/${product.id}`}>Ver detalle</a>
-                        </div>
-                    )
-                })
-            } */}
+        <div className="wa-app-layout">
+            <WhatsappSidebar />
+
+            <main className="wa-welcome-screen">
+                <div className="wa-welcome-card">
+                    <div className="wa-welcome-illustration">
+                        <svg width="120" height="96" viewBox="0 0 120 96" fill="none">
+                            <rect x="15" y="10" width="90" height="60" rx="8" fill="#1c2b33" stroke="#222d34" strokeWidth="2" />
+                            <rect x="25" y="18" width="70" height="44" rx="4" fill="#0b141a" />
+                            <rect x="35" y="24" width="20" height="32" rx="2" fill="#00a884" />
+                            <circle cx="72" cy="40" r="10" fill="#25d366" />
+                            <path d="M68 40l3 3 6-6" stroke="#111b21" strokeWidth="2" strokeLinecap="round" />
+                            <path d="M5 75h110a5 5 0 0 1 5 5v2H0v-2a5 5 0 0 1 5-5z" fill="#202c33" />
+                        </svg>
+                    </div>
+
+                    <h1 className="wa-welcome-title">Descarga WhatsApp para Windows</h1>
+                    <p className="wa-welcome-subtitle">
+                        Obtén funciones adicionales, como llamadas y videollamadas, compartir pantalla y más.
+                    </p>
+
+                    <button className="wa-download-btn">Descargar</button>
+                </div>
+
+                <div className="wa-welcome-footer">
+                    <button className="wa-footer-chip">
+                        <span>📄</span> Enviar documento
+                    </button>
+                    <button className="wa-footer-chip">
+                        <span>👤+</span> Añadir contacto
+                    </button>
+                    <button className="wa-footer-chip">
+                        <span>✨</span> Pregúntale a Meta AI
+                    </button>
+                </div>
+            </main>
         </div>
     )
 }
 
 export default HomeScreen
-
-
-/* 
-Ejemplo de lista de contactos: 
-    const contacts = [
-        {
-            id,
-            nombre,
-            fecha_ult_conexion: 'hace 2 dias',
-            mensajes_sin_ver: 2
-        }
-    ]
-
-Crear el componente 
-    WhatsappSidebar que debera renderizar la lista de contactos (Con datos aleatorios, almenos 3 conctactos)
-    Al dar click en un contacto nos debe llevar a la ruta /contact/{contact_id}
-En la ruta 
-    / => Debe mostrarse la lista de contactos (El WhatsappSidebar)
-    /contact/:contact_id => Debe mostrar el nombre el contacto seleccionado, o que el mismo no existe.
-
-No se preocupen por los estilos ni la tematica, es lo de menos
-*/

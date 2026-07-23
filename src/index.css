@@ -1,0 +1,68 @@
+/* Reset & Normalizations */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* WhatsApp Dark Theme Design Tokens */
+    --wa-bg-app: #0c1317;
+    --wa-bg-rail: #111b21;
+    --wa-bg-sidebar: #111b21;
+    --wa-bg-hover: #202c33;
+    --wa-bg-active: #2a3942;
+    --wa-bg-search: #202c33;
+    --wa-bg-pill: #202c33;
+    --wa-bg-pill-hover: #2a3942;
+    --wa-bg-pill-active: #0c4a3b;
+    --wa-text-pill-active: #00a884;
+    
+    --wa-text-primary: #e9edef;
+    --wa-text-secondary: #8696a0;
+    --wa-text-accent: #00a884;
+    --wa-text-muted: #667781;
+    
+    --wa-green: #00a884;
+    --wa-green-badge: #25d366;
+    --wa-green-light: #20c997;
+    
+    --wa-border: #222d34;
+    --wa-divider: #222d34;
+    
+    --wa-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --wa-rail-width: 64px;
+    --wa-sidebar-width: 380px;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+    font-family: var(--wa-font);
+    background-color: var(--wa-bg-app);
+    color: var(--wa-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+}
+
+/* Custom Scrollbar styled for WhatsApp theme */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.28);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
