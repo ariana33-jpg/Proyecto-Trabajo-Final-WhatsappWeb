@@ -96,7 +96,7 @@ const server_contacts = [
             {
                 id: 4,
                 sendByMe: true,
-                content: "gracias amiga"
+                content: "Gracias amiga"
             }
         ]
     },
