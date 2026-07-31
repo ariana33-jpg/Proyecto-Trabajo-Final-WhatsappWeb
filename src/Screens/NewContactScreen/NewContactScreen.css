@@ -1,0 +1,120 @@
+.wa-new-contact-screen {
+    flex: 1;
+    height: 100vh;
+    background-color: #111b21;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-contact-container {
+    width: 420px;
+    max-width: 90%;
+}
+
+.new-contact-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.new-contact-header h1 {
+    color: #e9edef;
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.new-contact-back {
+    border: none;
+    background: transparent;
+    color: #aebac1;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.new-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #8696a0;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid #374045;
+    border-radius: 6px;
+
+    background-color: #202c33;
+    color: #e9edef;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: #8696a0;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #00a884;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.new-contact-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.btn-cancel,
+.btn-save {
+    padding: 10px 22px;
+    border-radius: 20px;
+    border: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background-color: transparent;
+    color: #00a884;
+    border: 1px solid #00a884;
+}
+
+.btn-save {
+    background-color: #00a884;
+    color: #111b21;
+}
+
+.btn-cancel:hover {
+    background-color: #202c33;
+}
+
+.btn-save:hover {
+    background-color: #06cf9c;
+}

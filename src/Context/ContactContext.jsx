@@ -231,12 +231,28 @@ function ContactContextProvider() {
         )
     }
 
+    function addNewContact(newContact) {
+        setContacts((currentContacts) => [...currentContacts,
+            {
+                ...newContact,
+                id: Date.now(),
+                lastMessage: "",
+                time: "",
+                unreadCount: 0,
+                isMuted: false,
+                isGroup: false,
+                messages: []
+            }
+        ])
+    }
+
     const provider_values = {
         contacts: contacts,
         contact_selected,
         deleteMessageById,
         createMessage,
-        deleteAllMessages
+        deleteAllMessages,
+        addNewContact
     }
     return (
         <ContactContext.Provider value={provider_values}>

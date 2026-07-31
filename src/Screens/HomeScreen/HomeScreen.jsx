@@ -2,8 +2,11 @@ import { useContext } from "react"
 import WhatsappSidebar from "../../Components/WhatsappSidebar/WhatsappSidebar"
 import { ContactContext } from "../../Context/ContactContext"
 import "./HomeScreen.css"
+import { useNavigate } from "react-router"
 
 function HomeScreen() {
+    const navigate = useNavigate()
+
     return (
         <div className="wa-app-layout">
             <WhatsappSidebar />
@@ -33,7 +36,8 @@ function HomeScreen() {
                     <button className="wa-footer-chip">
                         <span>📄</span> Enviar documento
                     </button>
-                    <button className="wa-footer-chip">
+                    <button className="wa-footer-chip" 
+                    onClick={() => navigate("/new-contact")}>
                         <span>👤+</span> Añadir contacto
                     </button>
                     <button className="wa-footer-chip">
@@ -46,3 +50,4 @@ function HomeScreen() {
 }
 
 export default HomeScreen
+
