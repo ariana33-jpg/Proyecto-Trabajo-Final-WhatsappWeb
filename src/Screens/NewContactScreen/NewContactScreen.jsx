@@ -13,7 +13,7 @@ function NewContactScreen() {
     const [pais , setPais] = useState("");
     const [telefono , setTelefono] = useState("");
     return (
-        <div className="wa-app-layout">
+        <div className="wa-app-layout wa-new-contact-layout">
             <WhatsappSidebar />
 
             <main className="wa-new-contact-screen">
@@ -21,7 +21,12 @@ function NewContactScreen() {
                 <div className="new-contact-container">
 
                     <div className="new-contact-header">
-                        <button className="new-contact-back">
+                        <button 
+                            type="button"
+                            className="new-contact-back"
+                            onClick={() => navigate("/home")}
+                            title="Volver"
+                        >
                             ←
                         </button>
 

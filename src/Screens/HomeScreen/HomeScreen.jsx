@@ -8,7 +8,7 @@ function HomeScreen() {
     const navigate = useNavigate()
 
     return (
-        <div className="wa-app-layout">
+        <div className="wa-app-layout wa-home-layout">
             <WhatsappSidebar />
 
             <main className="wa-welcome-screen">

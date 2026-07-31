@@ -1,4 +1,5 @@
 import { useContext, useState } from "react"
+import { useNavigate } from "react-router"
 import MessagesList from "./MessagesList"
 import { ContactContext } from "../../Context/ContactContext"
 import "./Messages.css"
@@ -39,6 +40,7 @@ const IconSend = () => (
 function Messages() {
     const { contact_selected, deleteAllMessages, createMessage } = useContext(ContactContext)
     const [inputValue, setInputValue] = useState('')
+    const navigate = useNavigate()
 
     function handleCreateMessage(event) {
         event.preventDefault()
@@ -58,6 +60,14 @@ function Messages() {
             {/* Header */}
             <div className="wa-chat-header">
                 <div className="wa-chat-header-user">
+                    <button
+                        type="button"
+                        className="wa-mobile-back-btn"
+                        onClick={() => navigate("/home")}
+                        title="Volver a chats"
+                    >
+                        ←
+                    </button>
                     {contact_selected.avatarUrl ? (
                         <img
                             src={contact_selected.avatarUrl}

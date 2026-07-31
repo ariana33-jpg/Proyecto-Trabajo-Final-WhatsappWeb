@@ -2,8 +2,11 @@
     display: flex;
     width: 100vw;
     height: 100vh;
+    max-width: 2000px;
+    margin: 0 auto;
     overflow: hidden;
     background-color: var(--wa-bg-app);
+    box-sizing: border-box;
 }
 
 .wa-welcome-screen {
@@ -13,14 +16,15 @@
     align-items: center;
     justify-content: center;
     background-color: #222e35;
-    position: relative;
-    padding: 30px;
+    padding: 30px 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .wa-welcome-card {
     background-color: #1c272d;
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 36px 28px;
     max-width: 480px;
     width: 100%;
     display: flex;
@@ -28,24 +32,25 @@
     align-items: center;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
 .wa-welcome-illustration {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .wa-welcome-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--wa-text-primary);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .wa-welcome-subtitle {
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--wa-text-secondary);
     line-height: 1.5;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .wa-download-btn {
@@ -65,11 +70,15 @@
 }
 
 .wa-welcome-footer {
-    position: absolute;
-    bottom: 24px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    width: 100%;
+    max-width: 520px;
+    box-sizing: border-box;
 }
 
 .wa-footer-chip {
@@ -83,9 +92,66 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .wa-footer-chip:hover {
     background-color: var(--wa-bg-hover);
+    border-color: var(--wa-green);
 }
+
+/* Responsive Media Queries (320px to 2000px) */
+@media (max-width: 767px) {
+    /* On Home screen on mobile, hide welcome card area so WhatsApp sidebar (chat list) takes full screen */
+    .wa-home-layout .wa-welcome-screen {
+        display: none;
+    }
+
+    .wa-home-layout .wa-sidebar-container {
+        display: flex;
+        width: 100vw;
+    }
+
+    .wa-welcome-card {
+        padding: 24px 16px;
+    }
+    
+    .wa-welcome-title {
+        font-size: 20px;
+    }
+    
+    .wa-welcome-footer {
+        margin-top: 20px;
+        gap: 8px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .wa-welcome-screen {
+        padding: 20px 14px;
+    }
+
+    .wa-welcome-card {
+        padding: 28px 20px;
+        max-width: 420px;
+    }
+
+    .wa-welcome-footer {
+        margin-top: 20px;
+        gap: 8px;
+    }
+
+    .wa-footer-chip {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1441px) {
+    .wa-app-layout {
+        max-width: 2000px;
+    }
+}
+
+
+

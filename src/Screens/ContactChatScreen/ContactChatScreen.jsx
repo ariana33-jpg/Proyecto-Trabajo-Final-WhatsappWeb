@@ -23,7 +23,7 @@ const ContactChatScreen = () => {
     }
 
     return (
-        <div className="wa-app-layout">
+        <div className="wa-app-layout wa-chat-layout">
             <WhatsappSidebar />
             <Messages />
         </div>
