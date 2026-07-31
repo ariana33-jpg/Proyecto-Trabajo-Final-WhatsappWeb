@@ -1,8 +1,7 @@
 .wa-new-contact-screen {
-    flex: 1;
-    height: 100vh;
+    flex : 1;
+    height : 100vh;
     background-color: #111b21;
-
     display: flex;
     justify-content: center;
     align-items: center;
