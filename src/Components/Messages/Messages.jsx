@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { useNavigate } from "react-router"
 import MessagesList from "./MessagesList"
 import { ContactContext } from "../../Context/ContactContext"
+import ContactInfo from "../ContactInfo/ContactInfo"
 import "./Messages.css"
 
 const IconVideo = () => (
@@ -40,6 +41,7 @@ const IconSend = () => (
 function Messages() {
     const { contact_selected, deleteAllMessages, createMessage } = useContext(ContactContext)
     const [inputValue, setInputValue] = useState('')
+    const [showContactInfo, setShowContactInfo] = useState(false)
     const navigate = useNavigate()
 
     function handleCreateMessage(event) {
@@ -57,83 +59,97 @@ function Messages() {
 
     return (
         <div className="wa-chat-container">
-            {/* Header */}
-            <div className="wa-chat-header">
-                <div className="wa-chat-header-user">
-                    <button
-                        type="button"
-                        className="wa-mobile-back-btn"
-                        onClick={() => navigate("/home")}
-                        title="Volver a chats"
+            {/* Main Chat Area */}
+            <div className="wa-chat-main">
+                {/* Header */}
+                <div className="wa-chat-header">
+                    <div
+                        className="wa-chat-header-user"
+                        onClick={() => setShowContactInfo(prev => !prev)}
+                        title="Ver información del contacto"
                     >
-                        ←
-                    </button>
-                    {contact_selected.avatarUrl ? (
-                        <img
-                            src={contact_selected.avatarUrl}
-                            alt={contact_selected.name}
-                            className="wa-chat-avatar"
-                        />
-                    ) : (
-                        <div className="wa-chat-avatar">{initial}</div>
-                    )}
-                    <div className="wa-chat-header-info">
-                        <span className="wa-chat-header-name">{contact_selected.name}</span>
-                        <span className="wa-chat-header-status">en línea</span>
+                        <button
+                            type="button"
+                            className="wa-mobile-back-btn"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                navigate("/home");
+                            }}
+                            title="Volver a chats"
+                        >
+                            ←
+                        </button>
+                        {contact_selected.avatarUrl ? (
+                            <img
+                                src={contact_selected.avatarUrl}
+                                alt={contact_selected.name}
+                                className="wa-chat-avatar"
+                            />
+                        ) : (
+                            <div className="wa-chat-avatar">{initial}</div>
+                        )}
+                        <div className="wa-chat-header-info">
+                            <span className="wa-chat-header-name">{contact_selected.name}</span>
+                            <span className="wa-chat-header-status">en línea</span>
+                        </div>
+                    </div>
+
+                    <div className="wa-chat-header-actions">
+                        <button className="wa-chat-action-btn" title="Videollamada">
+                            <IconVideo />
+                        </button>
+                        <button className="wa-chat-action-btn" title="Llamada">
+                            <IconPhone />
+                        </button>
+                        <button className="wa-chat-action-btn" title="Buscar en el chat">
+                            <IconSearch />
+                        </button>
+                        <button
+                            className="wa-chat-action-btn"
+                            title="Eliminar historial de mensajes"
+                            onClick={deleteAllMessages}
+                        >
+                            <IconTrash />
+                        </button>
                     </div>
                 </div>
 
-                <div className="wa-chat-header-actions">
-                    <button className="wa-chat-action-btn" title="Videollamada">
-                        <IconVideo />
-                    </button>
-                    <button className="wa-chat-action-btn" title="Llamada">
-                        <IconPhone />
-                    </button>
-                    <button className="wa-chat-action-btn" title="Buscar en el chat">
-                        <IconSearch />
-                    </button>
-                    <button
-                        className="wa-chat-action-btn"
-                        title="Eliminar historial de mensajes"
-                        onClick={deleteAllMessages}
-                    >
-                        <IconTrash />
-                    </button>
+                {/* Messages Body */}
+                <MessagesList />
+
+                {/* Input Form Footer */}
+                <div className="wa-chat-footer">
+                    <form onSubmit={handleCreateMessage} className="wa-chat-form">
+                        <button type="button" className="wa-footer-icon-btn" title="Emojis">
+                            😊
+                        </button>
+                        <button type="button" className="wa-footer-icon-btn" title="Adjuntar">
+                            📎
+                        </button>
+
+                        <div className="wa-chat-input-wrapper">
+                            <input
+                                id="message"
+                                name="message"
+                                type="text"
+                                className="wa-chat-input"
+                                placeholder="Escribe un mensaje"
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
+                                autoComplete="off"
+                            />
+                        </div>
+                        <button type="submit" className="wa-send-btn" title="Enviar mensaje">
+                            <IconSend />
+                        </button>
+                    </form>
                 </div>
             </div>
 
-            {/* Messages Body */}
-            <MessagesList />
-
-            {/* Input Form Footer */}
-            <div className="wa-chat-footer">
-                <form onSubmit={handleCreateMessage} className="wa-chat-form">
-                    <button type="button" className="wa-footer-icon-btn" title="Emojis">
-                        😊
-                    </button>
-                    <button type="button" className="wa-footer-icon-btn" title="Adjuntar">
-                        📎
-                    </button>
-
-                    <div className="wa-chat-input-wrapper">
-                        <input
-                            id="message"
-                            name="message"
-                            type="text"
-                            className="wa-chat-input"
-                            placeholder="Escribe un mensaje"
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                            autoComplete="off"
-                        />
-                    </div>
-
-                    <button type="submit" className="wa-send-btn" title="Enviar mensaje">
-                        <IconSend />
-                    </button>
-                </form>
-            </div>
+            {/* Informacion del contacto */}
+            {showContactInfo && (
+                <ContactInfo onClose={() => setShowContactInfo(false)} />
+            )}
         </div>
     )
 }

@@ -1,0 +1,311 @@
+/* Contact Info Sidebar - WhatsApp Web Dark Theme */
+
+.wa-contact-info-panel {
+    width: 380px;
+    min-width: 380px;
+    height: 100%;
+    background-color: #0c1317;
+    border-left: 1px solid #222d34;
+    color: #e9edef;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 20;
+    animation: slideInRight 0.22s cubic-bezier(0.1, 0.9, 0.2, 1);
+    flex-shrink: 0;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Header */
+.wa-contact-info-header {
+    height: 60px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+    background-color: #202c33;
+    border-bottom: 1px solid #222d34;
+}
+
+.wa-contact-info-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #e9edef;
+}
+
+.wa-contact-info-close-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #8696a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.wa-contact-info-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e9edef;
+}
+
+/* Scrollable Content Body */
+.wa-contact-info-content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 30px;
+    background-color: #0c1317;
+}
+
+/* Scrollbar styling */
+.wa-contact-info-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wa-contact-info-content::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 3px;
+}
+
+/* Cards */
+.wa-info-card {
+    background-color: #111b21;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(11, 20, 26, 0.2);
+}
+
+/* Profile Hero Card */
+.wa-profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px 20px 20px;
+}
+
+.wa-profile-avatar-wrapper {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    background-color: #2a3942;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wa-profile-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wa-profile-avatar-fallback {
+    width: 100%;
+    height: 100%;
+    background-color: #6b7c85;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    font-weight: 500;
+}
+
+.wa-profile-name {
+    font-size: 22px;
+    font-weight: 500;
+    color: #e9edef;
+    margin: 0 0 4px 0;
+    word-break: break-word;
+}
+
+.wa-profile-phone {
+    font-size: 14.5px;
+    color: #8696a0;
+    margin: 0 0 20px 0;
+}
+
+/* Quick Action Buttons */
+.wa-profile-quick-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.wa-action-circle-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid #222d34;
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: #00a884;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    flex: 1;
+    max-width: 96px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.wa-action-circle-btn:hover {
+    background-color: rgba(0, 168, 132, 0.08);
+    border-color: rgba(0, 168, 132, 0.3);
+}
+
+/* Info Section Item */
+.wa-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.wa-info-item-label {
+    font-size: 13px;
+    color: #8696a0;
+}
+
+.wa-info-item-value {
+    font-size: 15.5px;
+    color: #e9edef;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.wa-info-item-sub {
+    font-size: 13px;
+    color: #8696a0;
+    margin-top: 2px;
+}
+
+.wa-info-divider {
+    height: 1px;
+    background-color: #222d34;
+    margin: 12px 0;
+}
+
+/* Card Rows & Clickable items */
+.wa-clickable-card {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.wa-clickable-card:hover,
+.wa-clickable-row:hover {
+    background-color: #182229;
+}
+
+.wa-card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #8696a0;
+    font-size: 15px;
+}
+
+.wa-card-row-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #e9edef;
+}
+
+.wa-card-row-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8696a0;
+}
+
+.wa-count-badge {
+    font-size: 13px;
+    color: #8696a0;
+}
+
+.wa-clickable-row {
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+.wa-row-main-text {
+    display: block;
+    font-size: 15px;
+    color: #e9edef;
+}
+
+.wa-row-sub-text {
+    font-size: 12.5px;
+    color: #8696a0;
+    margin: 3px 0 0 0;
+    line-height: 1.35;
+}
+
+/* Destructive / Danger Actions */
+.wa-danger-card {
+    padding: 6px 20px;
+}
+
+.wa-danger-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    color: #f15c6d;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: opacity 0.2s ease;
+}
+
+.wa-danger-row:hover {
+    opacity: 0.8;
+}
+
+/* Responsive (Mobile Drawer Overlay) */
+@media (max-width: 767px) {
+    .wa-contact-info-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        min-width: 100vw;
+        height: 100vh;
+        z-index: 1000;
+    }
+
+    .wa-profile-avatar-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+}
