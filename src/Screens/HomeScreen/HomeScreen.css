@@ -102,7 +102,7 @@
 
 /* Responsive Media Queries (320px to 2000px) */
 @media (max-width: 767px) {
-    /* On Home screen on mobile, hide welcome card area so WhatsApp sidebar (chat list) takes full screen */
+    
     .wa-home-layout .wa-welcome-screen {
         display: none;
     }

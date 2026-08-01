@@ -44,9 +44,9 @@ function Messages() {
 
     return (
         <div className="wa-chat-container">
-            {/* Main Chat Area */}
+            {/* Area principal del chat */}
             <div className="wa-chat-main">
-                {/* Header */}
+                {/* Encabezado */}
                 <div className="wa-chat-header">
                     <div
                         className="wa-chat-header-user"
@@ -99,7 +99,7 @@ function Messages() {
                     </div>
                 </div>
 
-                {/* Messages Body */}
+                {/* Area de la lista de mensajes */}
                 <MessagesList />
 
                 {showEmojiPicker && (
@@ -119,7 +119,7 @@ function Messages() {
                     </div>
                 )}
 
-                {/* Input Form Footer */}
+                {/* Formulario de pie de pagina de entrada del chat */}
                 <div className="wa-chat-footer">
                     <form onSubmit={handleCreateMessage} className="wa-chat-form">
                         <button

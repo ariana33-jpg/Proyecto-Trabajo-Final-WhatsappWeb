@@ -1,11 +1,8 @@
-/* 
-La idea es centralizar el manejo de estado de tema de color de la aplicacion en este archivo
-*/
 
 import { createContext, useEffect, useState } from "react";
 
 
-//Sirve para declarar contextos
+
 const ThemeContext = createContext()
 
 const THEME_STORAGE_KEY = 'wa-theme'

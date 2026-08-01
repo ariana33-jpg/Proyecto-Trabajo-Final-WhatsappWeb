@@ -6,7 +6,7 @@ import './index.css'
 
 
 
-/* LLama al div y renderiza el app dentro de el */
+
 createRoot(
   document.getElementById('root')
 ).render(

@@ -28,7 +28,7 @@ function ContactInfo({ onClose }) {
 
     return (
         <aside className="wa-contact-info-panel">
-            {/* Panel Header */}
+            {/* Panel Encabezado */}
             <div className="wa-contact-info-header">
                 <button
                     className="wa-contact-info-close-btn"
@@ -40,9 +40,9 @@ function ContactInfo({ onClose }) {
                 <h2>Info. del contacto</h2>
             </div>
 
-            {/* Content Body */}
+            {/* Cuerpo del contenido*/}
             <div className="wa-contact-info-content">
-                {/* Profile Card */}
+                {/* Tarjeta de perfil */}
                 <div className="wa-info-card wa-profile-card">
                     <div className="wa-profile-avatar-wrapper">
                         {contact_selected.avatarUrl ? (
@@ -59,7 +59,7 @@ function ContactInfo({ onClose }) {
                     <h1 className="wa-profile-name">{contact_selected.name}</h1>
                     <p className="wa-profile-phone">{defaultPhone}</p>
 
-                    {/* Quick action buttons */}
+                    {/* Botones de Acción Rápida */}
                     <div className="wa-profile-quick-actions">
                         <button className="wa-action-circle-btn" title="Audio">
                             <IconPhone />
@@ -76,7 +76,7 @@ function ContactInfo({ onClose }) {
                     </div>
                 </div>
 
-                {/* Status and Info Card */}
+                {/* Tarjeta de estado y informacion */}
                 <div className="wa-info-card">
                     <div className="wa-info-item">
                         <span className="wa-info-item-label">Info.</span>
@@ -92,7 +92,7 @@ function ContactInfo({ onClose }) {
                     </div>
                 </div>
 
-                {/* Media, links and docs Card */}
+                {/* Tarjeta de archivos multimedia, enlaces y documentos */}
                 <div className="wa-info-card wa-clickable-card">
                     <div className="wa-card-row">
                         <div className="wa-card-row-title">
@@ -106,7 +106,7 @@ function ContactInfo({ onClose }) {
                     </div>
                 </div>
 
-                {/* Options & Privacy Card */}
+                {/* Tarjeta de opciones y privacidad */}
                 <div className="wa-info-card">
                     <div className="wa-card-row wa-clickable-row">
                         <div className="wa-card-row-title">
@@ -127,7 +127,7 @@ function ContactInfo({ onClose }) {
                     </div>
                 </div>
 
-                {/* Contact Actions Card (Destructive) */}
+                {/* Tarjeta de acciones de contacto (destructivas  ) */}
                 <div className="wa-info-card wa-danger-card">
                     <button className="wa-danger-row">
                         <IconBlock />

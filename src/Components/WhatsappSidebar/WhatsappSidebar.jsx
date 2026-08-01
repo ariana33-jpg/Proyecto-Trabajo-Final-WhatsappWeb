@@ -39,10 +39,10 @@ const WhatsappSidebar = () => {
     const [showProfileDrawer, setShowProfileDrawer] = useState(false)
     const [profileImgError, setProfileImgError] = useState(false)
 
-    // Calculate total unread messages across contacts
+    // Calcular el total de mensajes no leídos en todos los contactos
     const totalUnread = contacts ? contacts.reduce((acc, c) => acc + (c.unreadCount || 0), 0) : 0
 
-    // Filter contacts based on search & filter chips
+    // Filtrar contactos según el término de búsqueda y el filtro activo
     const filteredContacts = (contacts || []).filter((contact) => {
         const matchesSearch =
             contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -64,7 +64,7 @@ const WhatsappSidebar = () => {
 
     return (
         <aside className="wa-sidebar-container">
-            {/* Far-left Vertical Icon Rail */}
+            {/* Barra de navegación vertical */}
             <div className="wa-nav-rail">
                 <div className="wa-rail-top">
                     <button
@@ -146,7 +146,7 @@ const WhatsappSidebar = () => {
                 </div>
             </div>
 
-            {/* Main Sidebar Content Area */}
+            {/* Contenido de la barra lateral principal*/}
             <div className="wa-sidebar-panel">
                 {showProfileDrawer ? (
                     <div className="wa-profile-drawer">
@@ -162,9 +162,9 @@ const WhatsappSidebar = () => {
                             <h2>Ajustes</h2>
                         </div>
 
-                        {/* Profile Content */}
+                        {/* Contenido del perfil */}
                         <div className="wa-profile-drawer-body">
-                            {/* Profile Hero */}
+                            {/* Perfil */}
                             <div className="wa-profile-hero">
                                 <div className="wa-profile-avatar-container">
                                 <div className="wa-profile-avatar-box">
@@ -188,7 +188,7 @@ const WhatsappSidebar = () => {
                                 <p className="wa-profile-hero-phone">+54 9 11 3456-7890</p>
                             </div>
 
-                            {/* Contact Info Card */}
+                            {/* Tarjeta de información */}
                             <div className="wa-profile-card-info">
                                 <div className="wa-profile-info-item">
                                     <span className="wa-profile-info-label">Tu nombre</span>
@@ -206,7 +206,7 @@ const WhatsappSidebar = () => {
                                 </div>
                             </div>
 
-                            {/* Settings Card */}
+                            {/* Tarjeta de configuración */}
                             <div className="wa-profile-settings-card">
                                 <div className="wa-profile-setting-row">
                                     <div className="wa-profile-setting-title">
@@ -243,7 +243,7 @@ const WhatsappSidebar = () => {
                                 </div>
                             </div>
 
-                            {/* Danger Card */}
+                            {/* Tarjeta de peligro */}
                             <div className="wa-profile-danger-card">
                                 <button className="wa-profile-danger-row">
                                     <IconLogout />
@@ -254,7 +254,7 @@ const WhatsappSidebar = () => {
                     </div>
                 ) : (
                     <>
-                {/* Header */}
+                {/*Encabezado*/}
                 <div className="wa-sidebar-header">
                     <h2 className="wa-sidebar-title">WhatsApp</h2>
                     <div className="wa-header-actions" style={{ position: 'relative' }}>
@@ -310,7 +310,7 @@ const WhatsappSidebar = () => {
                     </div>
                 </div>
 
-                {/* Search Bar */}
+                {/* Barra de busqueda */}
                 <div className="wa-search-section">
                     <div className="wa-search-box">
                         <span className="wa-search-icon">
@@ -331,7 +331,7 @@ const WhatsappSidebar = () => {
                     </div>
                 </div>
 
-                {/* Filter Chips Row */}
+                {/* Fila de filtros */}
                 <div className="wa-filter-chips">
                     <button
                         className={`wa-chip ${activeFilter === 'Todos' ? 'active' : ''}`}
@@ -362,7 +362,7 @@ const WhatsappSidebar = () => {
                     </button>
                 </div>
 
-                {/* Contacts List */}
+                {/* Lista de contactos */}
                 <div className="wa-contacts-list">
                     {filteredContacts.length > 0 ? (
                         filteredContacts.map((contact) => {

@@ -1,4 +1,4 @@
-/* Component CSS for WhatsApp Messages View */
+/* Css para la vista de mensajes de whatsapp */
 
 .wa-chat-container {
     display: flex;
@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 
-/* Main Chat Column */
+/* Columna principal del chat */
 .wa-chat-main {
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
     overflow: hidden;
 }
 
-/* Chat Header */
+/* Encabezado del chat */
 .wa-chat-header {
     height: 60px;
     padding: 10px 16px;
@@ -101,7 +101,7 @@
 }
 
 
-/* Messages List Area */
+/* Area de la lista de mensajes */
 .wa-messages-body {
     flex: 1;
     overflow-y: auto;
@@ -124,7 +124,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* Message Bubble */
+/* Burbuja de mensajes */
 .wa-msg-wrapper {
     display: flex;
     width: 100%;
@@ -221,7 +221,7 @@
     color: #ffffff;
 }
 
-/* Chat Input Footer Form */
+/* Formulario de pie de pagina de entrada del chat*/
 .wa-chat-footer {
     padding: 10px 16px;
     background-color: var(--wa-bg-sidebar);
@@ -261,7 +261,7 @@
     background-color: var(--wa-bg-hover);
 }
 
-/* Emoji Picker */
+/* Selector de emojis */
 .wa-emoji-picker {
     background-color: var(--wa-bg-card);
     border-top: 1px solid var(--wa-divider);
@@ -351,7 +351,7 @@
     transform: scale(0.95);
 }
 
-/* Mobile Back Button */
+/* Boton de retroceso movil */
 .wa-mobile-back-btn {
     display: none;
     border: none;
