@@ -4,9 +4,9 @@
     width: 380px;
     min-width: 380px;
     height: 100%;
-    background-color: #0c1317;
-    border-left: 1px solid #222d34;
-    color: #e9edef;
+    background-color: var(--wa-bg-panel);
+    border-left: 1px solid var(--wa-divider);
+    color: var(--wa-text-primary);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -34,15 +34,15 @@
     align-items: center;
     gap: 16px;
     padding: 0 16px;
-    background-color: #202c33;
-    border-bottom: 1px solid #222d34;
+    background-color: var(--wa-bg-header);
+    border-bottom: 1px solid var(--wa-divider);
 }
 
 .wa-contact-info-header h2 {
     margin: 0;
     font-size: 16px;
     font-weight: 500;
-    color: #e9edef;
+    color: var(--wa-text-primary);
 }
 
 .wa-contact-info-close-btn {
@@ -51,7 +51,7 @@
     border-radius: 50%;
     border: none;
     background: transparent;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,8 +60,8 @@
 }
 
 .wa-contact-info-close-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #e9edef;
+    background-color: var(--wa-bg-hover);
+    color: var(--wa-text-primary);
 }
 
 /* Scrollable Content Body */
@@ -72,7 +72,7 @@
     flex-direction: column;
     gap: 10px;
     padding-bottom: 30px;
-    background-color: #0c1317;
+    background-color: var(--wa-bg-panel);
 }
 
 /* Scrollbar styling */
@@ -81,13 +81,13 @@
 }
 
 .wa-contact-info-content::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.16);
+    background-color: var(--wa-scrollbar-thumb);
     border-radius: 3px;
 }
 
 /* Cards */
 .wa-info-card {
-    background-color: #111b21;
+    background-color: var(--wa-bg-card);
     padding: 16px 20px;
     box-shadow: 0 1px 3px rgba(11, 20, 26, 0.2);
 }
@@ -108,7 +108,7 @@
     overflow: hidden;
     margin-bottom: 16px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-    background-color: #2a3942;
+    background-color: var(--wa-avatar-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,8 +123,8 @@
 .wa-profile-avatar-fallback {
     width: 100%;
     height: 100%;
-    background-color: #6b7c85;
-    color: #ffffff;
+    background-color: var(--wa-avatar-placeholder);
+    color: var(--wa-avatar-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,14 +135,14 @@
 .wa-profile-name {
     font-size: 22px;
     font-weight: 500;
-    color: #e9edef;
+    color: var(--wa-text-primary);
     margin: 0 0 4px 0;
     word-break: break-word;
 }
 
 .wa-profile-phone {
     font-size: 14.5px;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
     margin: 0 0 20px 0;
 }
 
@@ -161,7 +161,7 @@
     align-items: center;
     gap: 6px;
     background: transparent;
-    border: 1px solid #222d34;
+    border: 1px solid var(--wa-divider);
     border-radius: 10px;
     padding: 10px 14px;
     color: #00a884;
@@ -187,25 +187,25 @@
 
 .wa-info-item-label {
     font-size: 13px;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
 }
 
 .wa-info-item-value {
     font-size: 15.5px;
-    color: #e9edef;
+    color: var(--wa-text-primary);
     margin: 0;
     line-height: 1.4;
 }
 
 .wa-info-item-sub {
     font-size: 13px;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
     margin-top: 2px;
 }
 
 .wa-info-divider {
     height: 1px;
-    background-color: #222d34;
+    background-color: var(--wa-divider);
     margin: 12px 0;
 }
 
@@ -217,14 +217,14 @@
 
 .wa-clickable-card:hover,
 .wa-clickable-row:hover {
-    background-color: #182229;
+    background-color: var(--wa-bg-hover-strong);
 }
 
 .wa-card-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
     font-size: 15px;
 }
 
@@ -232,19 +232,19 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    color: #e9edef;
+    color: var(--wa-text-primary);
 }
 
 .wa-card-row-right {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
 }
 
 .wa-count-badge {
     font-size: 13px;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
 }
 
 .wa-clickable-row {
@@ -255,12 +255,12 @@
 .wa-row-main-text {
     display: block;
     font-size: 15px;
-    color: #e9edef;
+    color: var(--wa-text-primary);
 }
 
 .wa-row-sub-text {
     font-size: 12.5px;
-    color: #8696a0;
+    color: var(--wa-text-secondary);
     margin: 3px 0 0 0;
     line-height: 1.35;
 }
@@ -278,7 +278,7 @@
     padding: 12px 0;
     background: transparent;
     border: none;
-    color: #f15c6d;
+    color: var(--wa-danger);
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;

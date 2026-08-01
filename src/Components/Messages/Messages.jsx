@@ -38,10 +38,22 @@ const IconSend = () => (
     </svg>
 )
 
+const emojis = [
+    '😀', '😄', '😁', '😆', '😅', '😂', '🤣', '😊',
+    '😇', '🙂', '😉', '😍', '🥰', '😘', '😋', '😎',
+    '🤩', '🥳', '😢', '😭', '😡', '🤯', '😴', '🤔',
+    '🙄', '😬', '🤗', '🤭', '🤫', '🥺', '😳', '😜',
+    '👍', '👎', '👏', '🙏', '🤝', '💪', '✌️', '🤞',
+    '👋', '🤙', '👀', '🧠', '❤️', '🧡', '💛', '💚',
+    '💙', '💜', '🖤', '💯', '🔥', '✨', '🎉', '🎂',
+    '🌹', '☕', '🍕', '⚽', '🎮', '🚀', '⭐', '🎯'
+]
+
 function Messages() {
     const { contact_selected, deleteAllMessages, createMessage } = useContext(ContactContext)
     const [inputValue, setInputValue] = useState('')
     const [showContactInfo, setShowContactInfo] = useState(false)
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false)
     const navigate = useNavigate()
 
     function handleCreateMessage(event) {
@@ -51,6 +63,11 @@ function Messages() {
 
         createMessage(messageText, true)
         setInputValue('')
+        setShowEmojiPicker(false)
+    }
+
+    function handleEmojiClick(emoji) {
+        setInputValue(prev => prev + emoji)
     }
 
     if (!contact_selected) return null
@@ -117,10 +134,32 @@ function Messages() {
                 {/* Messages Body */}
                 <MessagesList />
 
+                {showEmojiPicker && (
+                    <div className="wa-emoji-picker">
+                        <div className="wa-emoji-grid">
+                            {emojis.map((emoji) => (
+                                <button
+                                    key={emoji}
+                                    type="button"
+                                    className="wa-emoji-item"
+                                    onClick={() => handleEmojiClick(emoji)}
+                                >
+                                    {emoji}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 {/* Input Form Footer */}
                 <div className="wa-chat-footer">
                     <form onSubmit={handleCreateMessage} className="wa-chat-form">
-                        <button type="button" className="wa-footer-icon-btn" title="Emojis">
+                        <button
+                            type="button"
+                            className={`wa-footer-icon-btn ${showEmojiPicker ? 'active' : ''}`}
+                            title="Emojis"
+                            onClick={() => setShowEmojiPicker(prev => !prev)}
+                        >
                             😊
                         </button>
                         <button type="button" className="wa-footer-icon-btn" title="Adjuntar">

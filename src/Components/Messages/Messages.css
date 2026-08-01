@@ -7,7 +7,7 @@
     min-height: 0;
     flex: 1;
     background-color: var(--wa-chat-bg);
-    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+    background-image: radial-gradient(var(--wa-chat-pattern) 1px, transparent 0);
     background-size: 24px 24px;
     position: relative;
     overflow: hidden;
@@ -49,12 +49,12 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    background-color: #2a3942;
+    background-color: var(--wa-avatar-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--wa-avatar-text);
     font-size: 16px;
 }
 
@@ -117,7 +117,7 @@
     justify-content: center;
     color: var(--wa-text-secondary);
     font-size: 13px;
-    background-color: rgba(32, 44, 51, 0.85);
+    background-color: var(--wa-bg-card);
     border-radius: 8px;
     padding: 8px 16px;
     margin: auto;
@@ -182,7 +182,7 @@
     justify-content: flex-end;
     gap: 4px;
     font-size: 11px;
-    color: rgba(241, 241, 242, 0.63);
+    color: var(--wa-msg-footer);
     margin-top: -2px;
     align-self: flex-end;
 }
@@ -198,7 +198,7 @@
     position: absolute;
     top: 4px;
     right: 4px;
-    background: rgba(17, 27, 33, 0.7);
+    background: var(--wa-delete-btn-bg);
     border: none;
     color: var(--wa-text-secondary);
     width: 20px;
@@ -256,6 +256,55 @@
     background-color: var(--wa-bg-hover);
 }
 
+.wa-footer-icon-btn.active {
+    color: var(--wa-text-primary);
+    background-color: var(--wa-bg-hover);
+}
+
+/* Emoji Picker */
+.wa-emoji-picker {
+    background-color: var(--wa-bg-card);
+    border-top: 1px solid var(--wa-divider);
+    padding: 10px 12px;
+    flex-shrink: 0;
+    animation: emojiIn 0.15s ease;
+    z-index: 5;
+}
+
+@keyframes emojiIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wa-emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 4px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.wa-emoji-item {
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    line-height: 1;
+    padding: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.wa-emoji-item:hover {
+    background-color: var(--wa-bg-hover);
+}
+
 .wa-chat-input-wrapper {
     flex: 1;
     background-color: var(--wa-input-bg);
@@ -284,7 +333,7 @@
     height: 40px;
     border-radius: 50%;
     background-color: var(--wa-green);
-    color: #111b21;
+    color: var(--wa-on-green);
     border: none;
     display: flex;
     align-items: center;
@@ -368,6 +417,15 @@
         width: 32px;
         height: 32px;
         font-size: 18px;
+    }
+
+    .wa-emoji-grid {
+        grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+        max-height: 160px;
+    }
+
+    .wa-emoji-item {
+        font-size: 22px;
     }
 }
 

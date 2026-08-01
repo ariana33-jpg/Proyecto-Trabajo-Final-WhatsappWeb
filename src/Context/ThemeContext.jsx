@@ -2,23 +2,35 @@
 La idea es centralizar el manejo de estado de tema de color de la aplicacion en este archivo
 */
 
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 
 //Sirve para declarar contextos
 const ThemeContext = createContext()
 
+const THEME_STORAGE_KEY = 'wa-theme'
+
+function getInitialTheme() {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY)
+    return saved === 'light' ? 'light' : 'dark'
+}
+
 
 function ThemeContextProvider ({children}){
-    const [theme, setTheme] = useState('dark')
-    let nombre = 'pepe'
+    const [theme, setTheme] = useState(getInitialTheme)
 
+    useEffect(() => {
+        localStorage.setItem(THEME_STORAGE_KEY, theme)
+    }, [theme])
 
+    function toggleTheme() {
+        setTheme(prev => prev === 'dark' ? 'light' : 'dark')
+    }
 
     const provider_values = {
         theme: theme,
-        nombre: nombre,
-        setTheme: setTheme
+        setTheme: setTheme,
+        toggleTheme: toggleTheme
     }
     return (
         <ThemeContext.Provider

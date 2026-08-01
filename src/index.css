@@ -19,28 +19,103 @@
     --wa-bg-pill-hover: #2a3942;
     --wa-bg-pill-active: #0c4a3b;
     --wa-text-pill-active: #00a884;
-    
+
+    --wa-bg-header: #202c33;
+    --wa-bg-panel: #0c1317;
+    --wa-bg-card: #111b21;
+    --wa-bg-menu: #233138;
+    --wa-bg-hover-strong: #182229;
+    --wa-avatar-bg: #2a3942;
+    --wa-avatar-text: #ffffff;
+    --wa-avatar-placeholder: #6b7c85;
+    --wa-danger: #f15c6d;
+    --wa-on-green: #111b21;
+    --wa-delete-btn-bg: rgba(17, 27, 33, 0.7);
+    --wa-overlay-text: #e9edef;
+
     --wa-text-primary: #e9edef;
     --wa-text-secondary: #8696a0;
     --wa-text-accent: #00a884;
     --wa-text-muted: #667781;
-    
+
     --wa-green: #00a884;
     --wa-green-badge: #25d366;
     --wa-green-light: #20c997;
-    
+
     --wa-border: #222d34;
     --wa-divider: #222d34;
-    
+    --wa-input-border: #2a3942;
+
     --wa-msg-sent: #005c4b;
     --wa-msg-received: #202c33;
     --wa-chat-bg: #0b141a;
+    --wa-chat-pattern: rgba(255, 255, 255, 0.03);
+    --wa-msg-footer: rgba(241, 241, 242, 0.63);
     --wa-input-bg: #2a3942;
     --wa-check-blue: #53bdeb;
+
+    --wa-welcome-bg: #222e35;
+    --wa-welcome-card: #1c272d;
+
+    --wa-scrollbar-thumb: rgba(255, 255, 255, 0.16);
+    --wa-scrollbar-thumb-hover: rgba(255, 255, 255, 0.28);
 
     --wa-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --wa-rail-width: 64px;
     --wa-sidebar-width: 380px;
+}
+
+[data-theme="light"] {
+    /* WhatsApp Light Theme Design Tokens */
+    --wa-bg-app: #0c1317;
+    --wa-bg-rail: #111b21;
+    --wa-bg-sidebar: #ffffff;
+    --wa-bg-hover: #f0f2f5;
+    --wa-bg-active: #e9edef;
+    --wa-bg-search: #f0f2f5;
+    --wa-bg-pill: #f0f2f5;
+    --wa-bg-pill-hover: #e9edef;
+    --wa-bg-pill-active: #e7fce3;
+    --wa-text-pill-active: #008069;
+
+    --wa-bg-header: #f0f2f5;
+    --wa-bg-panel: #ffffff;
+    --wa-bg-card: #ffffff;
+    --wa-bg-menu: #ffffff;
+    --wa-bg-hover-strong: #f0f2f5;
+    --wa-avatar-bg: #dfe5e7;
+    --wa-avatar-text: #54656f;
+    --wa-avatar-placeholder: #dfe5e7;
+    --wa-danger: #ea4335;
+    --wa-on-green: #ffffff;
+    --wa-delete-btn-bg: rgba(255, 255, 255, 0.85);
+
+    --wa-text-primary: #111b21;
+    --wa-text-secondary: #667781;
+    --wa-text-accent: #00a884;
+    --wa-text-muted: #8696a0;
+
+    --wa-green: #00a884;
+    --wa-green-badge: #06cf9c;
+    --wa-green-light: #20c997;
+
+    --wa-border: #e9edef;
+    --wa-divider: #e9edef;
+    --wa-input-border: #d1d7db;
+
+    --wa-msg-sent: #d9fdd3;
+    --wa-msg-received: #ffffff;
+    --wa-chat-bg: #efeae2;
+    --wa-chat-pattern: rgba(0, 0, 0, 0.02);
+    --wa-msg-footer: rgba(17, 27, 33, 0.6);
+    --wa-input-bg: #ffffff;
+    --wa-check-blue: #53bdeb;
+
+    --wa-welcome-bg: #f0f2f5;
+    --wa-welcome-card: #ffffff;
+
+    --wa-scrollbar-thumb: rgba(11, 20, 26, 0.2);
+    --wa-scrollbar-thumb-hover: rgba(11, 20, 26, 0.3);
 }
 
 html, body, #root {
@@ -61,12 +136,12 @@ html, body, #root {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.16);
+    background-color: var(--wa-scrollbar-thumb);
     border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.28);
+    background-color: var(--wa-scrollbar-thumb-hover);
 }
 
 ::-webkit-scrollbar-track {
