@@ -1,12 +1,6 @@
 import { useContext } from "react"
 import { ContactContext } from "../../Context/ContactContext"
-
-const IconDoubleCheck = () => (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 6L7 17l-5-5" />
-        <path d="M22 10l-7.5 7.5L13 16" />
-    </svg>
-)
+import { IconDoubleCheck } from "../Icons"
 
 function MessagesList() {
     const { contact_selected, deleteMessageById } = useContext(ContactContext)
@@ -45,7 +39,7 @@ function MessagesList() {
                                 <span>{message.time}</span>
                                 {isMe && (
                                     <span className="wa-check-blue">
-                                        <IconDoubleCheck />
+                                        <IconDoubleCheck size={15} />
                                     </span>
                                 )}
                             </div>
