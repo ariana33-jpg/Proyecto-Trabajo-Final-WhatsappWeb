@@ -123,11 +123,31 @@ const IconLockApp = () => (
     </svg>
 )
 
+const IconBell = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+    </svg>
+)
+
+const IconLock = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+)
+
 const IconLogout = () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
         <polyline points="16 17 21 12 16 7" />
         <line x1="21" y1="12" x2="9" y2="12" />
+    </svg>
+)
+
+const IconChevronRight = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="9 18 15 12 9 6" />
     </svg>
 )
 
@@ -139,6 +159,7 @@ const WhatsappSidebar = () => {
     const [activeRailTab, setActiveRailTab] = useState('chats')
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [showProfileDrawer, setShowProfileDrawer] = useState(false)
+    const [profileImgError, setProfileImgError] = useState(false)
 
     // Calculate total unread messages across contacts
     const totalUnread = contacts ? contacts.reduce((acc, c) => acc + (c.unreadCount || 0), 0) : 0
@@ -260,49 +281,96 @@ const WhatsappSidebar = () => {
                             >
                                 ←
                             </button>
-                            <h2>Perfil</h2>
+                            <h2>Ajustes</h2>
                         </div>
 
                         {/* Profile Content */}
                         <div className="wa-profile-drawer-body">
-                            {/* Avatar Section */}
-                            <div className="wa-profile-avatar-container">
+                            {/* Profile Hero */}
+                            <div className="wa-profile-hero">
+                                <div className="wa-profile-avatar-container">
                                 <div className="wa-profile-avatar-box">
-                                    <img
-                                        src="/avatars/perfil.jpg"
-                                        alt="Tu Perfil"
-                                        className="wa-profile-large-img"
-                                    />
+                                    {profileImgError ? (
+                                        <div className="wa-profile-avatar-fallback">U</div>
+                                    ) : (
+                                        <img
+                                            src="/avatars/perfil.jpg"
+                                            alt="Tu Perfil"
+                                            className="wa-profile-large-img"
+                                            onError={() => setProfileImgError(true)}
+                                        />
+                                    )}
                                     <div className="wa-avatar-hover-overlay">
                                         <span className="wa-camera-icon">📷</span>
                                         <span>CAMBIAR FOTO DE PERFIL</span>
                                     </div>
                                 </div>
+                                </div>
+                                <h1 className="wa-profile-hero-name">Ariana</h1>
+                                <p className="wa-profile-hero-phone">+54 9 11 3456-7890</p>
                             </div>
 
-                            {/* Name Section */}
-                            <div className="wa-profile-section">
-                                <span className="wa-profile-label">Tu nombre</span>
-                                <div className="wa-profile-row">
-                                    <span className="wa-profile-value">Usuario</span>
-                                    <button className="wa-profile-pencil-btn" title="Editar nombre">
-                                        ✏️
-                                    </button>
+                            {/* Contact Info Card */}
+                            <div className="wa-profile-card-info">
+                                <div className="wa-profile-info-item">
+                                    <span className="wa-profile-info-label">Tu nombre</span>
+                                    <p className="wa-profile-info-value">Ariana</p>
                                 </div>
-                                <p className="wa-profile-hint">
-                                    Este no es tu nombre de usuario ni un PIN. Este nombre será visible para tus contactos de WhatsApp.
-                                </p>
+                                <div className="wa-profile-info-divider" />
+                                <div className="wa-profile-info-item">
+                                    <span className="wa-profile-info-label">Info.</span>
+                                    <p className="wa-profile-info-value">¡Hola! Estoy usando WhatsApp.</p>
+                                </div>
+                                <div className="wa-profile-info-divider" />
+                                <div className="wa-profile-info-item">
+                                    <span className="wa-profile-info-label">Número de teléfono</span>
+                                    <p className="wa-profile-info-value">+54 9 11 3456-7890</p>
+                                </div>
                             </div>
 
-                            {/* Status Section */}
-                            <div className="wa-profile-section">
-                                <span className="wa-profile-label">Info.</span>
-                                <div className="wa-profile-row">
-                                    <span className="wa-profile-value">¡Hola! Estoy usando WhatsApp.</span>
-                                    <button className="wa-profile-pencil-btn" title="Editar info">
-                                        ✏️
-                                    </button>
+                            {/* Settings Card */}
+                            <div className="wa-profile-settings-card">
+                                <div className="wa-profile-setting-row">
+                                    <div className="wa-profile-setting-title">
+                                        <IconBell />
+                                        <span>Notificaciones</span>
+                                    </div>
+                                    <IconChevronRight />
                                 </div>
+                                <div className="wa-profile-info-divider" />
+                                <div className="wa-profile-setting-row">
+                                    <div className="wa-profile-setting-title">
+                                        <IconLock />
+                                        <span>Privacidad y seguridad</span>
+                                    </div>
+                                    <IconChevronRight />
+                                </div>
+                                <div className="wa-profile-info-divider" />
+                                <div className="wa-profile-setting-row">
+                                    <div className="wa-profile-setting-title">
+                                        <IconLockApp />
+                                        <span>Bloqueo de aplicación</span>
+                                    </div>
+                                    <IconChevronRight />
+                                </div>
+                                <div className="wa-profile-info-divider" />
+                                <div className="wa-profile-setting-row wa-profile-setting-static">
+                                    <div className="wa-profile-setting-title">
+                                        <IconLock />
+                                        <div>
+                                            <span className="wa-profile-setting-main">Cifrado</span>
+                                            <p className="wa-profile-setting-sub">Los mensajes y las llamadas están cifrados de extremo a extremo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Danger Card */}
+                            <div className="wa-profile-danger-card">
+                                <button className="wa-profile-danger-row">
+                                    <IconLogout />
+                                    <span>Cerrar sesión</span>
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,4 @@
-import { useContext } from "react"
 import WhatsappSidebar from "../../Components/WhatsappSidebar/WhatsappSidebar"
-import { ContactContext } from "../../Context/ContactContext"
 import "./HomeScreen.css"
 import { useNavigate } from "react-router"
 

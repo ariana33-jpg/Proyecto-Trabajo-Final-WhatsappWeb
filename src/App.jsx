@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import HomeScreen from './Screens/HomeScreen/HomeScreen'
 import { Route, Routes } from 'react-router'
