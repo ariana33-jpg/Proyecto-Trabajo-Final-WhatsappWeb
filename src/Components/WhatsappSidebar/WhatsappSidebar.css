@@ -511,3 +511,238 @@
     }
 }
 
+/* Header Dropdown Menu (WhatsApp Web Style) */
+.wa-dropdown-menu {
+    position: absolute;
+    top: 42px;
+    right: 0;
+    width: 240px;
+    background-color: #233138;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(11, 20, 26, 0.6);
+    padding: 8px 0;
+    z-index: 200;
+    animation: fadeInMenu 0.15s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+@keyframes fadeInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.wa-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    color: #e9edef;
+    font-size: 14.5px;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.wa-dropdown-item:hover {
+    background-color: #182229;
+}
+
+.wa-dropdown-item svg {
+    color: #8696a0;
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+}
+
+.wa-dropdown-item:hover svg {
+    color: #e9edef;
+}
+
+.wa-dropdown-divider {
+    height: 1px;
+    background-color: #2a3942;
+    margin: 6px 0;
+}
+
+/* User Profile Drawer Inside Sidebar Panel */
+.wa-profile-drawer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #111b21;
+    animation: slideInProfile 0.22s cubic-bezier(0.1, 0.9, 0.2, 1);
+    overflow: hidden;
+}
+
+@keyframes slideInProfile {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.wa-profile-drawer-header {
+    height: 108px;
+    min-height: 108px;
+    background-color: #202c33;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    padding: 0 20px 18px 20px;
+}
+
+.wa-profile-back-btn {
+    background: transparent;
+    border: none;
+    color: #e9edef;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.wa-profile-back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.wa-profile-drawer-header h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 500;
+    color: #e9edef;
+}
+
+.wa-profile-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #111b21;
+}
+
+.wa-profile-avatar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 0;
+}
+
+.wa-profile-avatar-box {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.wa-profile-large-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wa-avatar-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 20, 26, 0.75);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #e9edef;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.wa-profile-avatar-box:hover .wa-avatar-hover-overlay {
+    opacity: 1;
+}
+
+.wa-camera-icon {
+    font-size: 24px;
+}
+
+.wa-avatar-hover-overlay span:last-child {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.wa-profile-section {
+    padding: 16px 30px;
+    background-color: #111b21;
+    box-shadow: 0 1px 3px rgba(11, 20, 26, 0.2);
+    margin-bottom: 12px;
+}
+
+.wa-profile-label {
+    display: block;
+    font-size: 13.5px;
+    color: #00a884;
+    margin-bottom: 14px;
+    font-weight: 400;
+}
+
+.wa-profile-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.wa-profile-value {
+    font-size: 16px;
+    color: #e9edef;
+}
+
+.wa-profile-pencil-btn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #8696a0;
+    padding: 4px;
+    border-radius: 50%;
+    transition: color 0.2s ease;
+}
+
+.wa-profile-pencil-btn:hover {
+    color: #e9edef;
+}
+
+.wa-profile-hint {
+    margin: 14px 0 0 0;
+    font-size: 13px;
+    color: #8696a0;
+    line-height: 1.4;
+}
+
+
+

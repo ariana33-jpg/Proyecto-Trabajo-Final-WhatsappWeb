@@ -86,12 +86,59 @@ const IconDoubleCheck = () => (
     </svg>
 )
 
+const IconGroupAdd = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <line x1="19" y1="8" x2="19" y2="14" />
+        <line x1="16" y1="11" x2="22" y2="11" />
+    </svg>
+)
+
+const IconStar = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+)
+
+const IconSelectChats = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="9 11 12 14 22 4" />
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+    </svg>
+)
+
+const IconMarkRead = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h9" />
+        <polyline points="22 7 12 13 2 7" />
+        <polyline points="16 19 18 21 22 17" />
+    </svg>
+)
+
+const IconLockApp = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+)
+
+const IconLogout = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+        <polyline points="16 17 21 12 16 7" />
+        <line x1="21" y1="12" x2="9" y2="12" />
+    </svg>
+)
+
 const WhatsappSidebar = () => {
     const { contacts } = useContext(ContactContext)
     const { contact_id } = useParams()
     const [searchTerm, setSearchTerm] = useState('')
     const [activeFilter, setActiveFilter] = useState('Todos')
     const [activeRailTab, setActiveRailTab] = useState('chats')
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [showProfileDrawer, setShowProfileDrawer] = useState(false)
 
     // Calculate total unread messages across contacts
     const totalUnread = contacts ? contacts.reduce((acc, c) => acc + (c.unreadCount || 0), 0) : 0
@@ -122,42 +169,57 @@ const WhatsappSidebar = () => {
             <div className="wa-nav-rail">
                 <div className="wa-rail-top">
                     <button
-                        className={`wa-rail-btn ${activeRailTab === 'chats' ? 'active' : ''}`}
+                        className={`wa-rail-btn ${activeRailTab === 'chats' && !showProfileDrawer ? 'active' : ''}`}
                         title="Chats"
-                        onClick={() => setActiveRailTab('chats')}
+                        onClick={() => {
+                            setActiveRailTab('chats')
+                            setShowProfileDrawer(false)
+                        }}
                     >
                         <IconChats />
                         {totalUnread > 0 && <span className="wa-rail-badge">{totalUnread > 99 ? '99+' : totalUnread}</span>}
                     </button>
 
                     <button
-                        className={`wa-rail-btn ${activeRailTab === 'calls' ? 'active' : ''}`}
+                        className={`wa-rail-btn ${activeRailTab === 'calls' && !showProfileDrawer ? 'active' : ''}`}
                         title="Llamadas"
-                        onClick={() => setActiveRailTab('calls')}
+                        onClick={() => {
+                            setActiveRailTab('calls')
+                            setShowProfileDrawer(false)
+                        }}
                     >
                         <IconCalls />
                     </button>
 
                     <button
-                        className={`wa-rail-btn ${activeRailTab === 'status' ? 'active' : ''}`}
+                        className={`wa-rail-btn ${activeRailTab === 'status' && !showProfileDrawer ? 'active' : ''}`}
                         title="Estado"
-                        onClick={() => setActiveRailTab('status')}
+                        onClick={() => {
+                            setActiveRailTab('status')
+                            setShowProfileDrawer(false)
+                        }}
                     >
                         <IconStatus />
                     </button>
 
                     <button
-                        className={`wa-rail-btn ${activeRailTab === 'channels' ? 'active' : ''}`}
+                        className={`wa-rail-btn ${activeRailTab === 'channels' && !showProfileDrawer ? 'active' : ''}`}
                         title="Canales"
-                        onClick={() => setActiveRailTab('channels')}
+                        onClick={() => {
+                            setActiveRailTab('channels')
+                            setShowProfileDrawer(false)
+                        }}
                     >
                         <IconChannels />
                     </button>
 
                     <button
-                        className={`wa-rail-btn ${activeRailTab === 'communities' ? 'active' : ''}`}
+                        className={`wa-rail-btn ${activeRailTab === 'communities' && !showProfileDrawer ? 'active' : ''}`}
                         title="Comunidades"
-                        onClick={() => setActiveRailTab('communities')}
+                        onClick={() => {
+                            setActiveRailTab('communities')
+                            setShowProfileDrawer(false)
+                        }}
                     >
                         <IconCommunities />
                     </button>
@@ -172,7 +234,11 @@ const WhatsappSidebar = () => {
                         <IconArchived />
                     </button>
 
-                    <div className="wa-rail-profile" title="Ajustes / Perfil">
+                    <div
+                        className={`wa-rail-profile ${showProfileDrawer ? 'active' : ''}`}
+                        title="Ajustes / Perfil"
+                        onClick={() => setShowProfileDrawer(prev => !prev)}
+                    >
                         <img
                             src="/avatars/perfil.jpg"
                             alt="Perfil"
@@ -183,16 +249,111 @@ const WhatsappSidebar = () => {
 
             {/* Main Sidebar Content Area */}
             <div className="wa-sidebar-panel">
+                {showProfileDrawer ? (
+                    <div className="wa-profile-drawer">
+                        {/* Header */}
+                        <div className="wa-profile-drawer-header">
+                            <button
+                                className="wa-profile-back-btn"
+                                onClick={() => setShowProfileDrawer(false)}
+                                title="Volver a los chats"
+                            >
+                                ←
+                            </button>
+                            <h2>Perfil</h2>
+                        </div>
+
+                        {/* Profile Content */}
+                        <div className="wa-profile-drawer-body">
+                            {/* Avatar Section */}
+                            <div className="wa-profile-avatar-container">
+                                <div className="wa-profile-avatar-box">
+                                    <img
+                                        src="/avatars/perfil.jpg"
+                                        alt="Tu Perfil"
+                                        className="wa-profile-large-img"
+                                    />
+                                    <div className="wa-avatar-hover-overlay">
+                                        <span className="wa-camera-icon">📷</span>
+                                        <span>CAMBIAR FOTO DE PERFIL</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Name Section */}
+                            <div className="wa-profile-section">
+                                <span className="wa-profile-label">Tu nombre</span>
+                                <div className="wa-profile-row">
+                                    <span className="wa-profile-value">Usuario</span>
+                                    <button className="wa-profile-pencil-btn" title="Editar nombre">
+                                        ✏️
+                                    </button>
+                                </div>
+                                <p className="wa-profile-hint">
+                                    Este no es tu nombre de usuario ni un PIN. Este nombre será visible para tus contactos de WhatsApp.
+                                </p>
+                            </div>
+
+                            {/* Status Section */}
+                            <div className="wa-profile-section">
+                                <span className="wa-profile-label">Info.</span>
+                                <div className="wa-profile-row">
+                                    <span className="wa-profile-value">¡Hola! Estoy usando WhatsApp.</span>
+                                    <button className="wa-profile-pencil-btn" title="Editar info">
+                                        ✏️
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <>
                 {/* Header */}
                 <div className="wa-sidebar-header">
                     <h2 className="wa-sidebar-title">WhatsApp</h2>
-                    <div className="wa-header-actions">
+                    <div className="wa-header-actions" style={{ position: 'relative' }}>
                         <button className="wa-icon-btn" title="Nuevo chat">
                             <IconNewChat />
                         </button>
-                        <button className="wa-icon-btn" title="Menú">
+                        <button
+                            className="wa-icon-btn"
+                            title="Menú"
+                            onClick={() => setIsMenuOpen(prev => !prev)}
+                        >
                             <IconMenu />
                         </button>
+
+                        {isMenuOpen && (
+                            <div className="wa-dropdown-menu">
+                                <button className="wa-dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                                    <IconGroupAdd />
+                                    <span>Nuevo grupo</span>
+                                </button>
+                                <button className="wa-dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                                    <IconStar />
+                                    <span>Mensajes destacados</span>
+                                </button>
+                                <button className="wa-dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                                    <IconSelectChats />
+                                    <span>Seleccionar chats</span>
+                                </button>
+                                <button className="wa-dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                                    <IconMarkRead />
+                                    <span>Marcar todos como leídos</span>
+                                </button>
+
+                                <div className="wa-dropdown-divider" />
+
+                                <button className="wa-dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                                    <IconLockApp />
+                                    <span>Bloqueo de aplicación</span>
+                                </button>
+                                <button className="wa-dropdown-item" onClick={() => setIsMenuOpen(false)}>
+                                    <IconLogout />
+                                    <span>Cerrar sesión</span>
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -316,8 +477,10 @@ const WhatsappSidebar = () => {
                         <div className="wa-no-contacts">No se encontraron chats</div>
                     )}
                 </div>
-            </div>
-        </aside>
+            </>
+        )}
+    </div>
+</aside>
     )
 }
 
